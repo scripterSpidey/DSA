@@ -98,6 +98,7 @@ function isIsomorphic(word1,word2){
 console.log(isIsomorphic('foo','bar'));
 "_____________________________________________________________________________________"
 
+"Return longest common prefix from the given array of strings"
 var longestCommonPrefix = function(strs) {
     
     let first = strs[0]//flow 
