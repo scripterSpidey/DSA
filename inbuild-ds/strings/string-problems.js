@@ -120,3 +120,35 @@ var longestCommonPrefix = function(strs) {
 console.log(longestCommonPrefix(["flower","flow","flight"]));
 
 "_____________________________________________________________________________________"
+"1614. Maximum Nesting Depth of the Parentheses"
+
+"Find the depth of paranthesis";
+"((((8)))) : depth = 4"
+"((2)((3))): max depth is 3, since number 3 is inside 3 enclosing paras"
+
+'Example 1:'
+ let s = "(1+(2*3)+((8)/4))+1"
+'Output: 3'
+'Explanation: Digit 8 is inside of 3 nested parentheses in the string.'
+
+'Example 2:'
+'Input: s = "(1)+((2))+(((3)))"'
+'Output: 3'
+
+var maxDepth = function(s) {
+    let count = 0;
+    let res = 0;
+    for(const word of s){
+        if(word == '('){
+            count++;
+        }
+        if(word ==')'){
+            count--;
+        }
+        res = Math.max(res,count);
+    }
+    return res;
+};
+
+console.log(maxDepth(s))
+"_____________________________________________________________________________________"

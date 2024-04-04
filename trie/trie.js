@@ -76,8 +76,7 @@ const trie = new Trie();
 const similarWords = ['apple', 'apricot', 'ape', 'approach', 'aptitude', 'application', 'apparel', 'appliance', 'apostle', 'appendix'];
 for (const word of similarWords){
     trie.add(word)
-}
-trie.add('Apple');
+}   
 console.log(trie.prefix(''))
 console.log(trie);
 console.log(trie.autoComplete(''))
