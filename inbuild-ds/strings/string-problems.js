@@ -127,7 +127,7 @@ console.log(longestCommonPrefix(["flower","flow","flight"]));
 "((2)((3))): max depth is 3, since number 3 is inside 3 enclosing paras"
 
 'Example 1:'
- let s = "(1+(2*3)+((8)/4))+1"
+ let s = "(1+(2*3)+((8)/4))+1"  
 'Output: 3'
 'Explanation: Digit 8 is inside of 3 nested parentheses in the string.'
 
