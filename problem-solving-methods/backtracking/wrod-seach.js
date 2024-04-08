@@ -9,11 +9,10 @@
 "Visualise this as rows and columns in a table"
 
 "For this problem we can proceed with Brute Force Method since this needs a lot of thinking"
-"In the puzzle we will look for the starting od given word through all the cols of table"
+"In the puzzle we will look for the starting of given word through all the cells of table"
 "Like wise we can start with each column of table and look for full words"
 "if we dont encouter the the next word in the chain we will backtrack, i.e, we return false"
-"We will do the search from a column in all direction , this is similar to dfs"
-""
+"We will do the search from a cell in all direction , this is similar to dfs"
 
 var exist = function(board, word) {
     //first get the size of entire array, which stands for row length
