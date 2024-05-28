@@ -66,6 +66,6 @@ heap.add(7);
 heap.add(10);
 heap.add(4);
 heap.add(100);
-heap.remove()
+// heap.remove()
 console.log(heap);
-console.log(heap.heapSort([3,8,1,15]))
+// console.log(heap.heapSort([3,8,1,15]))

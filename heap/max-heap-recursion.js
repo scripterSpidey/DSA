@@ -62,4 +62,4 @@ heap.add(0);
 console.log(heap)
 heap.remove()
 console.log(heap)
-// console.log(arr)
+console.log(arr)
