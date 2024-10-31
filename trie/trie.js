@@ -70,6 +70,29 @@ class Trie{
         }
         return longest;
     }
+
+    similarWords(word){
+        let curr = this.root;
+        let words = ''
+        for(const char of word){
+            if(curr.children[char]){
+                words += char;
+                curr = curr.children[char];
+            }else{
+                return false;
+            }
+        }
+        const allWords = [];
+        this.similarWordsUtil(words,allWords,curr);
+        return allWords;
+    }
+
+    similarWordsUtil(words,allWords,curr){
+        if(curr.end) allWords.push(words);
+        for(const key in curr.children){
+            this.similarWordsUtil(words+key,allWords,curr.children[key])
+        }
+    }
 }
 
 const trie = new Trie();
@@ -79,4 +102,5 @@ for (const word of similarWords){
 }   
 console.log(trie.prefix(''))
 console.log(trie);
-console.log(trie.autoComplete(''))
+console.log(trie.autoComplete(''));
+console.log(trie.similarWords(''))

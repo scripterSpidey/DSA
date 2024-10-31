@@ -18,6 +18,12 @@ function sortArr(leftArr,rightArr){
     return [...sortedArr,...leftArr,...rightArr]; //there will be cases at top level were arrays with different lengths will be passed for sorting. In that case, the while condn leaves a single element in the left or right arrays. We need to add this element too to the sorted array.
 }
 
-console.log(mergeSort([-1,2,1,6,89,0,10,-1]));;
+console.log(mergeSort([-1,2,1,6,89,0,10,-1]));
 
 "_________________________________________________________________________________"
+
+/**
+ * Merge sort doestn care wether the array is sorted or not , initially.
+ * It will always try to sort the given array regardless of the order.
+ * Big O : O(nlog(n))
+ */

@@ -5,7 +5,7 @@ class minHeap{
 
     createHeap(arr){
         for(let i=Math.floor(arr.length/2);i>=0;i--){
-            this.heapify(arr,i)
+            this.heapify(arr,i);
         }
         return arr;
     }
@@ -66,6 +66,3 @@ heap.add(0);
 heap.add(10);
 heap.remove()
 
-console.log(heap);
-
-console.log(heap.heapSort([10,37,0,1,9,]))

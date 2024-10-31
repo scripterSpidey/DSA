@@ -4,10 +4,9 @@ class maxHeap{
     }
 
     add(value){
-        if(this.heap.length==0){
-            this.heap.push(value)
-        }else{
-            this.heap.push(value);
+        this.heap.push(value)
+        if(this.heap.length!=0){
+            // this.heap.push(value);
             let child = this.heap.length-1;
             //heapify up.........................
             while(child>=0){
@@ -25,7 +24,7 @@ class maxHeap{
     remove(){
         let removed;
         if(this.heap.length==0) return false;
-        if(this.heap.length<=2){
+        if(this.heap.length<2){
             removed = this.heap.pop();
         }else{
             let len = this.heap.length;
@@ -54,6 +53,7 @@ class maxHeap{
         for(let i=0;i<array.length;i++){
             sort.add(array[i]);
         }
+        console.log('heap array:',sort.heap)
         for(let i=0;i<array.length;i++){
             sortedArr.push(sort.remove())
         }
@@ -62,10 +62,12 @@ class maxHeap{
 }
 
 const heap = new maxHeap();
-heap.add(7);
-heap.add(10);
-heap.add(4);
-heap.add(100);
+heap.add(5);
+heap.add(10)
+heap.add(100)
+heap.add(0);
 heap.remove()
 console.log(heap);
-console.log(heap.heapSort([3,8,1,15]))
+
+
+

@@ -10,7 +10,6 @@ class Stack{
 
     push(item){
         this.items[this.count] = item;
-       
         this.count++;
     }
 

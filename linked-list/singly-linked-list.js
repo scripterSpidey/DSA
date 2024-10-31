@@ -1,6 +1,8 @@
+const log = console.log
+
 class Node {
 
-    constructor(value,next = null){
+    constructor(value, next = null) {
         this.value = value;
         this.next = next;
     }
@@ -8,41 +10,43 @@ class Node {
 
 class LinkedList {
 
-    constructor(){
+    constructor() {
         this.head = null;
         this.size = 0;
     }
 
-    getSize(){
+    getSize() {
         return this.size;
     }
 
     // "insert first";
-    prepend(value){
-        const node = new Node(value,this.head);
+    prepend(value) {
+        const node = new Node(value, this.head);
         this.head = node;
         this.size++;
     }
 
     // "get the values";
-    getValue(){
+    getValue() {
         let current = this.head;
-        while(current){
+        let values = []
+        while (current) {
             // console.log(current)
-            console.log(current.value);
+            values.push(current.value)
             current = current.next;
         }
+        return values
     }
 
     // "insert last";
-    append(value){
+    append(value) {
         const node = new Node(value);
-        
-        if(!this.head){
+
+        if (!this.head) {
             this.head = node;
-        }else{
+        } else {
             let current = this.head;
-            while(current.next){
+            while (current.next) {
                 current = current.next;
             }
             current.next = node;
@@ -51,11 +55,11 @@ class LinkedList {
     }
 
     // "insert anywhere";
-    insertAt(value,index){
-        if(index< 0 || index>= this.size) return;
+    insertAt(value, index) {
+        if (index < 0 || index >= this.size) return;
 
-        if(index == 0){
-            this.head = new Node(value,this.head);
+        if (index == 0) {
+            this.head = new Node(value, this.head);
             this.size++;
             return;
         }
@@ -63,8 +67,8 @@ class LinkedList {
         const node = new Node(value);
         let count = 0;
         let prevNode;
-        let currentNode= this.head;
-        while(count<index){
+        let currentNode = this.head;
+        while (count < index) {
             prevNode = currentNode;
             currentNode = currentNode.next;
             count++;
@@ -75,79 +79,79 @@ class LinkedList {
     }
 
     //get values at..............
-    getValueAt(index){
-        if(index< 0 || index>= this.size) return ;
+    getValueAt(index) {
+        if (index < 0 || index >= this.size) return;
         let currentNode = this.head;
         let position = 0;
-        while(position<index){
+        while (position < index) {
             currentNode = currentNode.next;
             position++;
         }
-        console.log(`node  at ${index}`,currentNode);
+        console.log(`node  at ${index}`, currentNode);
     };
 
     // Remove value at index X
-    removeValueAt(index){
-        if(index< 0 || index>= this.size || !index){
+    removeValueAt(index) {
+        if (index < 0 || index >= this.size || !index) {
             console.log('out of range')
             return;
-        } 
+        }
         let currentNode = this.head;
         let position = 0;
-        if(index == 0){
-             this.head = currentNode.next;
-             this.size--;
-        }else{
+        if (index == 0) {
+            this.head = currentNode.next;
+            this.size--;
+        } else {
             let prevIndex;
-            while(position < index){
+            while (position < index) {
                 prevIndex = currentNode;
                 currentNode = currentNode.next;
                 position++;
             }
             prevIndex.next = currentNode.next;
-            this.size --;
-        } 
+            this.size--;
+        }
     }
 
     //delete all data from the list
-    clearList(){
+    clearList() {
         this.head = null;
         this.size = 0;
     }
 
     //get first element of the list
-    getFirst(){
-        if(!this.head){
+    getFirst() {
+        if (!this.head) {
             console.log('List is empty');
             return;
         }
-        console.log('first node value: ',this.head.value)
+        console.log('first node value: ', this.head.value)
     }
 
     //get last element of the list
-    getLast(){
-        if(!this.head){
+    getLast() {
+        if (!this.head) {
             console.log('List is empty');
             return;
         }
-        let currentNode =  this.head;
+        let currentNode = this.head;
         let position = 0;
-        while(position<this.size-1){
+        while (position < this.size - 1) {
             currentNode = currentNode.next;
             position++;
         }
-        console.log('Last node value: ',currentNode.value)
+        console.log('Last node value: ', currentNode.value)
     }
 
     //Replace element of the list at index X
-    replaceAt(index,value){
-        if(index< 0 || index >= this.size){
+    replaceAt(index, value) {
+        if (index < 0 || index >= this.size) {
             console.log('Out of range');
             return;
         }
         let currentNode = this.head;
         let position = 0;
-        while(position< index){
+        while (position < index) {
             currentNode = currentNode.next;
             position++;
         }
@@ -155,22 +159,22 @@ class LinkedList {
     }
 
     //Remove  the specified elment
-    removeValue(value){
-        if(!this.head){
+    removeValue(value) {
+        if (!this.head) {
             console.log('List is empty');
             return;
         }
         let currentNode = this.head;
-        if(currentNode.value == value){
+        if (currentNode.value == value) {
             this.head = currentNode.next;
             this.size--;
             return;
         }
         let prevNode;
-        while(currentNode){
+        while (currentNode) {
             prevNode = currentNode;
             currentNode = currentNode.next;
-            if( currentNode?.value == value){
+            if (currentNode?.value == value) {
                 prevNode.next = currentNode.next;
                 this.size--;
                 return;
@@ -178,20 +182,20 @@ class LinkedList {
         }
         console.log('Value can not be found')
     }
-    
+
     //Find the value and return its index
-    findValue(value){
-        if(!this.head){
+    findValue(value) {
+        if (!this.head) {
             console.log('List is empty');
             return;
         }
         let currentNode = this.head;
         let position = 0;
-        while(currentNode){
-            if(currentNode?.value == value){
+        while (currentNode) {
+            if (currentNode?.value == value) {
                 console.log(`${value} is at index ${position}`);
                 return;
-            }else{
+            } else {
                 currentNode = currentNode.next;
                 position++
             }
@@ -200,63 +204,61 @@ class LinkedList {
     }
 
     //Reverse the list;
-    reverse(){
-        if(!this.head){
+    reverse() {
+        if (!this.head) {
             console.log("List is empty");
             return;
         }
         let currentNode = this.head;
-        let prevNode= null;
-        while(currentNode){
+        let prevNode = null;
+        while (currentNode) {
             let tempNode = currentNode.next;
             currentNode.next = prevNode;
             prevNode = currentNode;
-            currentNode = tempNode; 
+            currentNode = tempNode                                 ;
         }
         this.head = prevNode;
     }
+
+    ulta(){
+        if(!this.head || !this.head.next) return;
+        let curr = this.head;
+        let prev = null;
+        while(curr){
+            let temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        this.head  = prev;
+    }
+
+    middleElement(){
+        if(!this.head) return;
+        if(!this.head.next) return this.head.value;
+
+        let slow = this.head;
+        let fast = this.head.next;
+        while(fast && fast.next){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.value;
+    }
+
+  
 }
 
-const l1 = new LinkedList();
-const l2 = new LinkedList();
-
-l1.append(2);
-l1.append(4);
-l1.append(3);
-l2.append(5);
-l2.append(6);
-l2.append(4);
-
-let l1Head = l1.head;
-let l2Head = l2.head;
-console.log('l1head: ',l1Head.value)
-
-let l1Val = '';
-let l2Val = '';
-while(l1Head){
-    l1Val += l1Head.value;
-    l1Head= l1Head.next;
-}
-while(l2Head){
-    l2Val +=l2Head.value;
-    l2Head = l2Head.next;
-}
-console.log(l1Val,l2Val)
-let newVal = parseInt(l1Val)+parseInt(l2Val);
-console.log(newVal)
-let rev =newVal.toString().split('').reverse();
-console.log(rev)
-let reversed = new Node(rev[0]);
-console.log(reversed)
-let y = reversed
-for(let i=1;i<rev.length;i++){
-    let x = new Node(rev[i]);
-    y.next = x;
-    y = reversed.next;
-}
-console.log(reversed)
+const list = new LinkedList()
 
 
+let array = [1,2,3,4,5,6,7,8];
+
+array.forEach(num=>list.append(num));
+log(list.getValue())
+list.ulta()
+log(list.getValue())
+// log(list.middleElement())
 
 
 
